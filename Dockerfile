@@ -8,7 +8,7 @@ ENV USER dugong
 ENV HOME /headless
 
 RUN apt-get update && apt-get install -y --allow-unauthenticated git curl vim \
-    && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
+    && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && echo "User: $USER Pass: $PASS" \
     && useradd -d $HOME --shell /bin/bash --user-group --groups adm,sudo $USER \
     && echo "$USER:$PASS" | chpasswd \
