@@ -5,10 +5,12 @@ MAINTAINER Fabiano Menegidio <fabiano.menegidio@biology.bio.br>
 ENV PASS dugong
 ENV USER dugong
 ENV HOME /headless
-
+ENV UID 1000
 
 RUN apk update && apk add --no-cache curl git vim bzip2 sudo \
-
+    && adduser -s /bin/bash -u $UID -h $HOME -D $USER \
+    && echo "$USER:$PASS" | chpasswd \
+    && echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
     && mkdir -p $HOME/data \
     && mkdir -p $HOME/.ve \
     && mkdir -p $HOME/.workspace \
