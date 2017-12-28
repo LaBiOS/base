@@ -8,7 +8,7 @@ ENV HOME /headless
 ENV UID 1000
 
 RUN apk update && apk add --no-cache curl git vim bzip2 sudo \
-    && && rm -rf /var/cache/apk/* \
+    && rm -rf /var/cache/apk/* \
     && adduser -s /bin/bash -u $UID -h $HOME -D $USER \
     && echo "$USER:$PASS" | chpasswd \
     && echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
