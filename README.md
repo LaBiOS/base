@@ -1,4 +1,4 @@
-# Minimal Linux Base
+# LaBiOS Minimal Linux Base
 
 Dockerfile base for creating Docker projects by LaBiOS:
 
