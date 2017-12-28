@@ -9,7 +9,7 @@ Dockerfile base for creating Docker projects by LaBiOS:
 
 ## Dockerfile Alpine:
 
-- Compressed Size: 74 MB
+- Compressed Size: 75 MB
 - Packages default: curl git vim bzip2 sudo bash build-base glibc
 
 ```
@@ -52,7 +52,7 @@ CMD ["/bin/bash"]
 
 ## Dockerfile Ubuntu:
 
-- Compressed Size: 149 MB
+- Compressed Size: 150 MB
 - Packages default: curl git vim bzip2 sudo build-essential
 
 ```
