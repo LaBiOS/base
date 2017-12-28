@@ -34,6 +34,8 @@ VOLUME ["$HOME/data"]
 CMD ["/bin/bash"]
 ```
 
+---
+
 ## Dockerfile Ubuntu:
 
 ```
