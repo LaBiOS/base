@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --allow-unauthenticated git curl vim bz
     && mkdir -p $HOME/.workspace \
     && ln -s $HOME/.ve $HOME/data/.ve && ln -s $HOME/.workspace $HOME/data/.workspace \
     && chown -R $USER:$USER $HOME \
-    && wget --quiet https://github.com/krallin/tini/releases/download/v0.16.1/tini \
+    && curl -fsSL "https://github.com/krallin/tini/releases/download/v0.16.1/tini" \
     && mv tini /usr/local/bin/tini && chmod +x /usr/local/bin/tini
     
 USER $USER
