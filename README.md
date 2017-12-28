@@ -9,7 +9,7 @@ Dockerfile base for creating Docker projects by LaBiOS:
 
 ## Dockerfile Alpine:
 
-- Compressed Size: 19 MB
+- Compressed Size: 20 MB
 
 ```
 FROM alpine:latest
