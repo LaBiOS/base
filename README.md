@@ -9,6 +9,8 @@ Dockerfile base for creating Docker projects by LaBiOS:
 
 ## Dockerfile Alpine:
 
+- Compressed Size: 19 MB
+
 ```
 FROM alpine:latest
 MAINTAINER Fabiano Menegidio <fabiano.menegidio@biology.bio.br>
@@ -42,6 +44,8 @@ CMD ["/bin/bash"]
 ---
 
 ## Dockerfile Ubuntu:
+
+- Compressed Size: 94 MB
 
 ```
 FROM ubuntu:latest
