@@ -7,7 +7,7 @@ ENV PASS dugong
 ENV USER dugong
 ENV HOME /headless
 
-RUN apt-get update && apt-get install -y --allow-unauthenticated git curl vim bzip2 sudo build-essential \
+RUN apt-get update && apt-get install -y --allow-unauthenticated git curl wget vim bzip2 sudo build-essential \
     && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && echo "User: $USER Pass: $PASS" \
     && useradd -d $HOME --shell /bin/bash --user-group --groups adm,sudo $USER \
@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y --allow-unauthenticated git curl vim bz
     && mkdir -p $HOME/.workspace \
     && ln -s $HOME/.ve $HOME/data/.ve && ln -s $HOME/.workspace $HOME/data/.workspace \
     && chown -R $USER:$USER $HOME \
-    && curl -fsSL "https://github.com/krallin/tini/releases/download/v0.16.1/tini" \
+    && wget --quiet  https://github.com/krallin/tini/releases/download/v0.16.1/tini \
     && mv tini /usr/local/bin/tini && chmod +x /usr/local/bin/tini
     
 USER $USER
