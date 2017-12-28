@@ -7,7 +7,7 @@ ENV USER dugong
 ENV HOME /headless
 ENV UID 1000
 
-RUN apk update && apk add --no-cache curl git vim bzip2 sudo bash build-base ca-certificates \
+RUN apk update && apk add --no-cache curl git vim bzip2 sudo bash build-base ca-certificates openssl openssl-dev \    
     && rm -rf /var/cache/apk/* \
     && adduser -s /bin/bash -u $UID -h $HOME -D $USER \
     && echo "$USER:$PASS" | chpasswd \
