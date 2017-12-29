@@ -26,6 +26,8 @@ RUN export PASS="$(pwgen -1 12)" \
     && ln -s $HOME/.ve $HOME/data/.ve && ln -s $HOME/.workspace $HOME/data/.workspace \
     && chown -R $USER:$USER $HOME
 
+RUN echo "############### Welcome to Dugong Bioinformatics ###############" \
+    && echo "############### User: $USER - Pass: $PASS ###############"
 
 USER $USER
 
@@ -33,5 +35,4 @@ ENTRYPOINT ["tini", "--"]
 VOLUME ["$HOME/data"]
 CMD ["/bin/bash"]
 
-RUN echo "############### Welcome to Dugong Bioinformatics ###############" \
-    && echo "User: $USER - Pass: $PASS"
+
