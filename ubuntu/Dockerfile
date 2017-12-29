@@ -12,7 +12,7 @@ RUN apt-get update && apt-get install -y --allow-unauthenticated git curl wget v
 
 ############### Create User and Password
 
-ENV PASS='pwgen -c -n -1 12'
+ENV PASS=`pwgen -c -n -1 12`
 ENV USER dugong
 ENV HOME /headless
 
