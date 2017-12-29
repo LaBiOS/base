@@ -17,14 +17,14 @@ ENV HOME /headless
 
 RUN export PASS="$(pwgen -1 12)" \
     && useradd -d $HOME --shell /bin/bash --user-group --groups adm,sudo $USER \
-    && echo "############### Welcome to Dugong Bioinformatics ###############"  >> $HOME/.login \
-    && echo "############### User: $USER - Pass: $PASS ###############" >> $HOME/.login.login \
     && echo "$USER:$PASS" | chpasswd \
     && echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
     && mkdir -p $HOME/data \
     && mkdir -p $HOME/.ve \
     && mkdir -p $HOME/.workspace \
     && ln -s $HOME/.ve $HOME/data/.ve && ln -s $HOME/.workspace $HOME/data/.workspace \
+    && echo "############### Welcome to Dugong Bioinformatics ###############"  >> $HOME/.login \
+    && echo "############### User: $USER - Pass: $PASS ###############" >> $HOME/.login.login \
     && chown -R $USER:$USER $HOME
 
 USER $USER
