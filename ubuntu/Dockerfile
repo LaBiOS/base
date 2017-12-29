@@ -5,7 +5,7 @@ MAINTAINER Fabiano Menegidio <fabiano.menegidio@biology.bio.br>
 ENV DEBIAN_FRONTEND noninteractive
 ENV SHELL /bin/bash
 
-RUN apt-get update && apt-get install -y --allow-unauthenticated git curl wget vim bzip2 sudo build-essential pwgen cowsay \
+RUN apt-get update && apt-get install -y --allow-unauthenticated git curl wget vim bzip2 sudo build-essential pwgen \
     && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
     && wget --quiet  https://github.com/krallin/tini/releases/download/v0.16.1/tini \
     && mv tini /usr/local/bin/tini && chmod +x /usr/local/bin/tini
@@ -24,7 +24,7 @@ RUN export PASS="$(pwgen -1 12)" \
     && mkdir -p $HOME/.workspace \
     && ln -s $HOME/.ve $HOME/data/.ve && ln -s $HOME/.workspace $HOME/data/.workspace \
     && echo "############### Welcome to Dugong Bioinformatics ###############"  >> $HOME/.login \
-    && echo "############### User: $USER - Pass: $PASS ###############" >> $HOME/.login.login \
+    && echo "############### User: $USER - Pass: $PASS ###############" >> $HOME/.login \
     && chown -R $USER:$USER $HOME
 
 USER $USER
@@ -34,5 +34,5 @@ ENTRYPOINT ["tini", "--"]
 VOLUME ["$HOME/data"]
 CMD ["/bin/bash"]
 
-RUN /bin/bash -c "cowsay < $HOME/.login"
+RUN cat $HOME/.login
 
