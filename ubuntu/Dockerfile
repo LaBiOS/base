@@ -28,6 +28,7 @@ RUN export PASS="$(pwgen -1 12)" \
     && chown -R $USER:$USER $HOME
 
 USER $USER
+WORKDIR $HOME/data
 
 ENTRYPOINT ["tini", "--"]
 VOLUME ["$HOME/data"]
