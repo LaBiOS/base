@@ -12,11 +12,11 @@ RUN apt-get update && apt-get install -y --allow-unauthenticated git curl wget v
 
 ############### Create User and Password
 
-ENV PASS=$(shell pwgen --secure 8 1)
 ENV USER dugong
 ENV HOME /headless
 
-RUN echo "User: $USER Pass: $PASS" \
+RUN export PASS="$(pwgen -c -n -1 12)" \
+    echo "User: $USER Pass: $PASS" \
     && useradd -d $HOME --shell /bin/bash --user-group --groups adm,sudo $USER \
     && echo "$USER:$PASS" | chpasswd \
     && echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
