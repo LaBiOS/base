@@ -30,6 +30,7 @@ zlib-dev \
     && curl -L "https://github.com/sgerrand/alpine-pkg-glibc/releases/download/2.26-r0/glibc-bin-2.26-r0.apk" -o glibc-bin.apk \
     && apk add glibc-bin.apk \
     && /usr/glibc-compat/sbin/ldconfig /lib /usr/glibc/usr/lib \
+    && ln -s /usr/include/locale.h /usr/include/xlocale.h && update-ca-certificates \
     && rm -rf glibc*apk /var/cache/apk/* \
     && adduser -s /bin/bash -u $UID -h $HOME -D $USER \
     && echo "$USER:$PASS" | chpasswd \
