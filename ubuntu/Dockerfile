@@ -24,7 +24,7 @@ RUN export PASS="$(pwgen -1 12)" \
     && mkdir -p $HOME/.workspace \
     && ln -s $HOME/.ve $HOME/data/.ve && ln -s $HOME/.workspace $HOME/data/.workspace \
     && echo "############### Welcome to Dugong Bioinformatics ###############"  >> $HOME/.login \
-    && echo "############### User: $USER - Pass: $PASS ###############" >> $HOME/.login \
+    && echo "############## User: $USER - Pass: $PASS ##############" >> $HOME/.login \
     && chown -R $USER:$USER $HOME
 
 USER $USER
