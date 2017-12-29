@@ -16,7 +16,7 @@ ENV USER dugong
 ENV HOME /headless
 
 RUN export PASS="$(pwgen -1 12)" \
-    && echo "User: $USER - Pass: $PASS" \
+    && echo "User: $USER - Pass: $PASS" >> .login \
     && useradd -d $HOME --shell /bin/bash --user-group --groups adm,sudo $USER \
     && echo "$USER:$PASS" | chpasswd \
     && echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
@@ -27,7 +27,7 @@ RUN export PASS="$(pwgen -1 12)" \
     && chown -R $USER:$USER $HOME
 
 RUN echo "############### Welcome to Dugong Bioinformatics ###############" \
-    && echo "############### User: $USER - Pass: $PASS ###############"
+    && cat .login
 
 USER $USER
 
