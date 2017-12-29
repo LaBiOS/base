@@ -34,4 +34,4 @@ VOLUME ["$HOME/data"]
 CMD ["/bin/bash"]
 
 RUN echo "############### Welcome to Dugong Bioinformatics ###############" \
-    && echo "############### USER: dugong - PASS: $PASS ###############"
+    && echo "User: $USER - Pass: $PASS"
