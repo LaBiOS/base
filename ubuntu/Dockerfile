@@ -33,5 +33,5 @@ ENTRYPOINT ["tini", "--"]
 VOLUME ["$HOME/data"]
 CMD ["/bin/bash"]
 
-RUN cowsay < .login
+RUN /bin/bash -c "cowsay < .login"
 
