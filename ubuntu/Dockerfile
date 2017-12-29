@@ -30,7 +30,7 @@ RUN export PASS="$(pwgen -c -n -1 12)" \
 USER $USER
 
 RUN echo "############### Welcome to Dugong Bioinformatics ###############" \
-    && echo "############### USER: dugong - PASS: dugong ###############"
+    && echo "############### USER: dugong - PASS: $PASS ###############"
 
 ENTRYPOINT ["tini", "--"]
 VOLUME ["$HOME/data"]
