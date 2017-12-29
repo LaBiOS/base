@@ -16,8 +16,8 @@ ENV USER dugong
 ENV HOME /headless
 
 RUN export PASS="$(pwgen -1 12)" \
-    && echo "############### Welcome to Dugong Bioinformatics ###############"  >> .login \
-    && echo "############### User: $USER - Pass: $PASS ###############" >> .login \
+    && echo "############### Welcome to Dugong Bioinformatics ###############"  >> $HOME/.login \
+    && echo "############### User: $USER - Pass: $PASS ###############" >> $HOME/.login.login \
     && useradd -d $HOME --shell /bin/bash --user-group --groups adm,sudo $USER \
     && echo "$USER:$PASS" | chpasswd \
     && echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
@@ -33,5 +33,5 @@ ENTRYPOINT ["tini", "--"]
 VOLUME ["$HOME/data"]
 CMD ["/bin/bash"]
 
-RUN /bin/bash -c "cowsay < .login"
+RUN /bin/bash -c "cowsay < $HOME/.login"
 
