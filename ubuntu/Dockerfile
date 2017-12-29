@@ -3,6 +3,7 @@ MAINTAINER Fabiano Menegidio <fabiano.menegidio@biology.bio.br>
 
 ############### Environment config
 ENV DEBIAN_FRONTEND noninteractive
+ENV SHELL /bin/bash
 
 RUN apt-get update && apt-get install -y --allow-unauthenticated git curl wget vim bzip2 sudo build-essential pwgen \
     && apt-get clean && apt-get autoremove && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
@@ -11,7 +12,7 @@ RUN apt-get update && apt-get install -y --allow-unauthenticated git curl wget v
 
 ############### Create User and Password
 
-ENV PASS=$(pwgen -c -n -1 8)
+ENV PASS="$(pwgen -c -n -1 8)"
 ENV USER dugong
 ENV HOME /headless
 
