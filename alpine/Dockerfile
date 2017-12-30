@@ -36,9 +36,9 @@ zlib-dev \
     && echo "$USER:$PASS" | chpasswd \
     && echo "$USER ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers \
     && mkdir -p $HOME/data \
-    && mkdir -p $HOME/.ve \
+    && mkdir -p $HOME/.notebooks \
     && mkdir -p $HOME/.workspace \
-    && ln -s $HOME/.ve $HOME/data/.ve && ln -s $HOME/.workspace $HOME/data/.workspace \
+    && ln -s $HOME/.notebooks $HOME/data/.notebooks && ln -s $HOME/.workspace $HOME/data/.workspace \
     && chown -R $USER:$USER $HOME
 
 USER $USER
