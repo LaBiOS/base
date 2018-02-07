@@ -36,7 +36,7 @@ RUN apt-get update && apt-get install -y --allow-unauthenticated git curl wget v
     
 USER $USER
 
-RUN echo "############### Welcome to Dugong Bioinformatics ###############" \
+RUN echo "############### Welcome to Minimal Dugong ###############" \
     && echo "############### USER: dugong - PASS: dugong ###############"
     
 VOLUME ["$HOME/data"]
