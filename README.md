@@ -9,7 +9,7 @@ Dockerfile base for creating Docker projects by LaBiOS:
 
 ## Dockerfile Ubuntu:
 
-- Compressed Size: 150 MB
+- Compressed Size: 279 MB
 - Packages default: git curl wget vim bzip2 sudo build-essential pwgen fuse automake cmake sed grep dpkg zip openjdk-8-jre pkg-config ca-certificates mercurial subversion
 
 ```
